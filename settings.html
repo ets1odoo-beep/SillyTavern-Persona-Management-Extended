@@ -22,6 +22,156 @@
 
         <hr class="sysHR" />
 
+        <div class="flex-container flexFlowColumn pme-generator-settings">
+          <label class="checkbox_label">
+            <input id="pme-persona-generator-enabled" type="checkbox" />
+            <span>Enable dynamic persona generator</span>
+          </label>
+          <small class="text_muted">
+            Adds a magic-wand action that creates a new persona from the current
+            card and links it using the selected profile.
+          </small>
+
+          <label for="pme-generator-profile-select">
+            Persona generation profile
+          </label>
+          <div class="flex-container flexGap5">
+            <select id="pme-generator-profile-select" class="text_pole"></select>
+            <button
+              id="pme-generator-profile-add"
+              class="menu_button menu_button_icon"
+              type="button"
+              title="Add profile"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <button
+              id="pme-generator-profile-delete"
+              class="menu_button menu_button_icon pme-danger"
+              type="button"
+              title="Delete profile"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+
+          <label for="pme-generator-profile-name">Profile name</label>
+          <input id="pme-generator-profile-name" class="text_pole" type="text" />
+
+          <div class="pme-generator-grid">
+            <label>
+              Max response length
+              <input
+                id="pme-generator-response-length"
+                class="text_pole"
+                type="number"
+                min="100"
+                step="50"
+              />
+            </label>
+            <label>
+              Output format
+              <select id="pme-generator-output-format" class="text_pole">
+                <option value="json">JSON preferred</option>
+                <option value="text">Plain text fallback</option>
+              </select>
+            </label>
+            <label>
+              AI connection profile for persona generation
+              <select
+                id="pme-generator-ai-connection-profile"
+                class="text_pole"
+              ></select>
+            </label>
+            <label>
+              Persona link target
+              <select id="pme-generator-connection-mode" class="text_pole">
+                <option value="character">Current character card only</option>
+                <option value="chat">Current chat only</option>
+                <option value="character_and_chat">Character and chat</option>
+                <option value="manual">Ask on save</option>
+              </select>
+            </label>
+          </div>
+
+          <label for="pme-generator-base-instruction">
+            Persona generation prompt
+          </label>
+          <textarea
+            id="pme-generator-base-instruction"
+            class="text_pole textarea_compact"
+            rows="9"
+          ></textarea>
+
+          <label for="pme-generator-modal-instruction">
+            Default extra instruction shown in popup
+          </label>
+          <textarea
+            id="pme-generator-modal-instruction"
+            class="text_pole textarea_compact"
+            rows="3"
+          ></textarea>
+
+          <div class="pme-generator-fields">
+            <label class="checkbox_label">
+              <input id="pme-gen-field-description" type="checkbox" />
+              <span>Description</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-personality" type="checkbox" />
+              <span>Personality</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-scenario" type="checkbox" />
+              <span>Scenario</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-first-message" type="checkbox" />
+              <span>First message</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-examples" type="checkbox" />
+              <span>Examples</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-creator-notes" type="checkbox" />
+              <span>Creator notes</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-system-prompt" type="checkbox" />
+              <span>System prompt</span>
+            </label>
+            <label class="checkbox_label">
+              <input id="pme-gen-field-post-history" type="checkbox" />
+              <span>Post-history instructions</span>
+            </label>
+          </div>
+
+          <label class="checkbox_label">
+            <input id="pme-generator-clear-connections" type="checkbox" />
+            <span>Clear unrelated connections before linking</span>
+          </label>
+          <label class="checkbox_label">
+            <input id="pme-generator-auto-select" type="checkbox" />
+            <span>Auto-select generated persona after save</span>
+          </label>
+          <label class="checkbox_label">
+            <input id="pme-generator-remove-default" type="checkbox" />
+            <span>Never set generated persona as default</span>
+          </label>
+
+          <button
+            id="pme-generator-profile-save"
+            class="menu_button"
+            type="button"
+            style="margin-top: 10px; width: 100%"
+          >
+            <i class="fa-solid fa-floppy-disk"></i> Save Generator Profile
+          </button>
+        </div>
+
+        <hr class="sysHR" />
+
         <div class="flex-container flexFlowColumn">
           <button
             id="pme-import-from-user-persona-extended"

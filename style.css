@@ -618,6 +618,65 @@
   text-align: left;
 }
 
+.pme-generator-settings {
+  gap: 8px;
+}
+
+.pme-generator-settings label {
+  margin-top: 4px;
+}
+
+.pme-generator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  align-items: end;
+}
+
+.pme-generator-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.pme-generator-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 4px 8px;
+}
+
+.pme-generator-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.pme-generator-modal textarea,
+.pme-generator-modal input,
+.pme-generator-modal select {
+  width: 100%;
+}
+
+.pme-gen-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pme-gen-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pme-gen-busy {
+  opacity: 0.75;
+}
+
 .pme-additional-fullscreen .pme-item,
 .pme-additional-fullscreen .pme-group,
 .pme-additional-fullscreen .pme-adv,

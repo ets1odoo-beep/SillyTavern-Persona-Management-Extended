@@ -11,6 +11,8 @@ import {
   refreshAdvancedUIIfVisible,
 } from "./src/ui/personaManagementTab.js";
 import { registerGenerateInterceptor } from "./src/injector.js";
+import { installPersonaGeneratorWandButton } from "./src/personaGenerator.js";
+import { installPersonaScopeGuard } from "./src/personaScopeGuard.js";
 import { initSettingsUI, loadSettings } from "./settings.js";
 
 function tryInitUI() {
@@ -30,9 +32,15 @@ function init() {
 
   registerGenerateInterceptor();
 
+  // Enforce per-card persona scope on every chat change.
+  installPersonaScopeGuard();
+
   // 1) App ready hook (safe point where ST UI exists)
   eventSource.on(event_types.APP_READY, () => {
-    setTimeout(() => tryInitUI(), 100);
+    setTimeout(() => {
+      tryInitUI();
+      installPersonaGeneratorWandButton();
+    }, 100);
   });
 
   // 2) When Persona Management drawer is opened

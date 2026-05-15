@@ -10,6 +10,7 @@ import { callGenericPopup, POPUP_RESULT, POPUP_TYPE } from "/scripts/popup.js";
 
 import { el, setHidden } from "./dom.js";
 import { UI_EVENTS } from "../uiBus.js";
+import { openPersonaGenerator } from "../../personaGenerator.js";
 
 function clickNative(id) {
   const node = document.getElementById(id);
@@ -126,6 +127,11 @@ export function createCurrentPersonaPanel({ getPersonaName, bus }) {
   const titleEl = el("div", "pme-current-title", "[Persona Name]");
   const buttons = el("div", "pme-current-buttons");
 
+  buttons.appendChild(
+    makeIconButton("Generate Linked Persona", "fa-user-plus", () =>
+      openPersonaGenerator({ bus })
+    )
+  );
   buttons.appendChild(
     makeIconButton("Rename Persona", "fa-pencil", () => {
       clickNative("persona_rename_button");

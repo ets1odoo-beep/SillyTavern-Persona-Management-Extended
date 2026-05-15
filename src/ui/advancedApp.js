@@ -11,6 +11,7 @@ import {
 import { createAdditionalDescriptionsCard } from "./components/additionalDescriptions.js";
 import { createSettingsCard } from "./components/settingsCard.js";
 import { createUiBus, UI_EVENTS } from "./uiBus.js";
+import { installPersonaGeneratorWandButton } from "../personaGenerator.js";
 
 function getPersonaName() {
   return power_user?.personas?.[user_avatar] ?? user_avatar ?? "";
@@ -19,6 +20,7 @@ function getPersonaName() {
 export function createAdvancedApp(rootEl) {
   let mounted = false;
   const bus = createUiBus();
+  installPersonaGeneratorWandButton({ bus });
 
   const panel = el("div", "pme-panel");
 
